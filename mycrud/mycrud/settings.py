@@ -27,6 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_URL = '/login/'   # default login url 
+LOGIN_REDIRECT_URL = '/' # url pe care ma arunca dupa logare cu succes
+LOGOUT_REDIRECT_URL = '/' # url pe care ma arunca dupa logout cu succes
+# LOGOUT 
+
 
 # Application definition
 

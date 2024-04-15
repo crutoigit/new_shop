@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from item.models import Category, Item
+from django.contrib.auth import logout
 
 from .forms import SingupForm
 
@@ -16,8 +17,16 @@ def signup(request):
         form = SingupForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('core:index')  # redirect se face la un view care deja deseneaza un html
+            return redirect('/login/')  # redirect se face la un view care deja deseneaza un html
     else:
         form = SingupForm()
         
     return render(request, 'core/signup.html', {'form':form})
+
+# logica de login este implementata dupa default in url-uri
+
+def logout_user(request):
+    logout(request)  #insusi delogarea
+    return redirect('/') # dupa ce iesim din cont ajungem la pagina princiapla
+
+    
